@@ -1,15 +1,14 @@
-module top (input logic [7:0] a, 
-	    input logic        sel, clk, reset,
-	    output logic [7:0] z);
+module top (input logic  [63:0] C_seed, 
+	         input logic         clk, reset,
+	         output logic [63:0] N_seed);
 
-   logic [7:0] 		       sum;
-   logic [7:0] 		       sub;
-   logic [7:0] 		       regin;   
+   logic [63:0] 		       dpIn;
+   logic [63:0] 		       dpOut;
 
-   adder p1 (a, z, sum);
-   sub p2 (a, z, sub);
-   assign regin = sel ? sub : sum;
-   flopr p3 (clk, reset, regin, z);
+   assign dpIn = reset ? C_seed : N_seed;
+   datapath nextphase(dpIn, dpOut);
+   flop hold(clk, dpOut, N_seed);
+   
 
 endmodule // top
 

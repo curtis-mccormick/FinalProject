@@ -4,7 +4,7 @@
 // Written: David_Harris@hmc.edu 9 January 2021
 // Modified: 
 //
-// Purpose: D flip-flop with synchronous reset
+// Purpose: D flip-flop without synchronous reset
 // 
 // A component of the CORE-V-WALLY configurable RISC-V project.
 // 
@@ -25,13 +25,13 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 `timescale 1ns / 1ps
-module flopr #(parameter WIDTH = 8) ( 
-  input  logic             clk, reset,
-  input  logic [WIDTH-1:0] d, 
-  output logic [WIDTH-1:0] q);
+module flopr(input  logic       clk,
+             input  logic       reset, 
+             input  logic [7:0] d, 
+             output logic [7:0] q);
 
-  always_ff @(posedge clk)
-    if (reset) q <= #1 0;
-    else       q <= #1 d;
+  // asynchronous reset (similar to HDL Example 4.19)
+  always_ff @(posedge clk, posedge reset)
+     if (reset) q <= 8'b0;
+     else       q <= d;
 endmodule
-
