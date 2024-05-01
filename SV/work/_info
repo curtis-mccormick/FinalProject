@@ -9,54 +9,54 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/cumccor/Documents/LabFinal/FinalProject/SV
+Z0 dC:/Users/nicnova/FinalProject/SV
 T_opt
-Z1 !s110 1713206046
-V>lj0<PDaW8<kfFIeM?W8K2
-04 8 4 work stimulus fast 0
-=1-00be43902b35-661d731e-21e-972c
+Z1 !s110 1714598939
+V7AY<2C6393U>9I>;NBnZG0
+04 4 4 work tblf fast 0
+=1-00be43904ff0-6632b41b-28a-9c0
 !s124 OEM100
 o-quiet -auto_acc_if_foreign -work work +acc
 Z2 tCvgOpt 0
 n@_opt
 OL;O;2021.3;73
-vdatapath
+vlfsr
 Z3 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
 R1
 !i10b 1
-!s100 V;C_hS8f1BHnb36LBjYJ01
-I<ahlD=61ndBBilL@NE8dL1
+!s100 [?T6IGJ07nGd>L=N]j?Zi2
+IM`M;k@ok8F@YdZcc:6JPC2
 S1
 R0
-Z4 w1713198872
-Z5 8datapath.sv
-Z6 Fdatapath.sv
+Z4 w1714598821
+Z5 8lfsr.sv
+Z6 Flfsr.sv
 !i122 0
-L0 7 79
+L0 1 7
 Z7 VDg1SIo80bB@j0V0VzS_@n1
 Z8 OL;L;2021.3;73
 r1
 !s85 0
 31
-Z9 !s108 1713206046.000000
-Z10 !s107 out_tb.sv|datapath.sv|
-Z11 !s90 datapath.sv|out_tb.sv|
+Z9 !s108 1714598939.000000
+Z10 !s107 lfsr_tb.sv|lfsr.sv|
+Z11 !s90 -reportprogress|300|lfsr.sv|lfsr_tb.sv|
 !i113 0
 Z12 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 R2
-vevolve3
+vlfsr64
 R3
 R1
 !i10b 1
-!s100 IXoNo]gEC0MZaJ37;nO_30
-IM8klP?6AAQElYj^^>dMog1
+!s100 UNR4i2n689G1VWD7CazE_0
+I:6zhb9oAN3URdge5izIOl0
 S1
 R0
 R4
 R5
 R6
 !i122 0
-L0 88 14
+L0 9 7
 R7
 R8
 r1
@@ -68,91 +68,19 @@ R11
 !i113 0
 R12
 R2
-vevolve5
+vtblf
 R3
 R1
 !i10b 1
-!s100 I^MlKOK_W3OeeJBMAXc:W2
-I:N2@j2?Hz8T^_^8H8DMB42
+!s100 6M<DWGmWAz41=^X0A?1;]0
+IEkg34RgeZ]8j<dT2`zPV02
 S1
 R0
-R4
-R5
-R6
+w1714598551
+8lfsr_tb.sv
+Flfsr_tb.sv
 !i122 0
-L0 103 17
-R7
-R8
-r1
-!s85 0
-31
-R9
-R10
-R11
-!i113 0
-R12
-R2
-vevolve8
-R3
-R1
-!i10b 1
-!s100 X=VQ5`4bnRg0]4e9c_9PV1
-I9=CLF7`lSL3IgfFX:JW2G3
-S1
-R0
-R4
-R5
-R6
-!i122 0
-L0 122 23
-R7
-R8
-r1
-!s85 0
-31
-R9
-R10
-R11
-!i113 0
-R12
-R2
-vrules
-R3
-R1
-!i10b 1
-!s100 JL3^U4`<X^MUIi:l8LemW2
-IBcFBl4c5NRZOko>2=jFA93
-S1
-R0
-R4
-R5
-R6
-!i122 0
-L0 147 9
-R7
-R8
-r1
-!s85 0
-31
-R9
-R10
-R11
-!i113 0
-R12
-R2
-vstimulus
-R3
-R1
-!i10b 1
-!s100 VZ?<N@?gm]l]76=FfQHgl0
-IAdNld`DzgOWfdgHAJZ76k3
-S1
-R0
-w1713206041
-8out_tb.sv
-Fout_tb.sv
-!i122 0
-L0 2 15
+L0 2 54
 R7
 R8
 r1

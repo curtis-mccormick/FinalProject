@@ -27,11 +27,11 @@
 /* verilator lint_off DECLFILENAME */
 
 module mux2 #(parameter WIDTH = 8) (
-  input  logic [WIDTH-1:0] d0, d1, 
-  input  logic             s, 
-  output logic [WIDTH-1:0] y);
+  input  logic [WIDTH-1:0] seed_in, game_in, 
+  input  logic             go, 
+  output logic [WIDTH-1:0] seed_out);
 
-  assign y = s ? d1 : d0; 
+  assign seed_out = go ? game_in : seed_in; 
 endmodule
 
 module mux3 #(parameter WIDTH = 8) (

@@ -1,21 +1,3 @@
-# do datapath.do
-# Model Technology ModelSim SE-64 vlog 2021.3 Compiler 2021.07 Jul 13 2021
-# Start time: 13:34:06 on Apr 15,2024
-# vlog datapath.sv out_tb.sv 
-# -- Compiling module datapath
-# -- Compiling module evolve3
-# -- Compiling module evolve5
-# -- Compiling module evolve8
-# -- Compiling module rules
-# -- Compiling module stimulus
-# 
-# Top level modules:
-# 	stimulus
-# End time: 13:34:06 on Apr 15,2024, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vsim -voptargs="+acc" work.stimulus 
-# Start time: 13:34:06 on Apr 15,2024
-# ** Note: (vsim-3812) Design is being optimized...
 # //  ModelSim SE-64 2021.3 Jul 13 2021
 # //
 # //  Copyright 1991-2021 Mentor Graphics Corporation
@@ -29,15 +11,31 @@
 # //  is prohibited from disclosure under the Trade Secrets Act,
 # //  18 U.S.C. Section 1905.
 # //
+# do lfsr.do
+# Model Technology ModelSim SE-64 vlog 2021.3 Compiler 2021.07 Jul 13 2021
+# Start time: 16:28:59 on May 01,2024
+# vlog -reportprogress 300 lfsr.sv lfsr_tb.sv 
+# -- Compiling module lfsr
+# -- Compiling module lfsr64
+# -- Compiling module tblf
+# 
+# Top level modules:
+# 	lfsr
+# 	tblf
+# End time: 16:28:59 on May 01,2024, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -voptargs="+acc" work.tblf 
+# Start time: 16:28:59 on May 01,2024
+# ** Note: (vsim-3812) Design is being optimized...
 # Loading sv_std.std
-# Loading work.stimulus(fast)
-# Loading work.datapath(fast)
-# Loading work.evolve3(fast)
-# Loading work.rules(fast)
-# Loading work.evolve5(fast)
-# Loading work.evolve8(fast)
-# ** Error (suppressible): (vsim-12027) Array connection type 'reg$[63:0]' is incompatible with 'reg[63:0]' for  port (grid_evolve):  Can't mix packed and unpacked types.
-#    Time: 0 ps  Iteration: 0  Instance: /stimulus/run1 File: out_tb.sv Line: 6
-# Error loading design
-# End time: 13:34:06 on Apr 15,2024, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
+# Loading work.tblf(fast)
+# Loading work.lfsr64(fast)
+# .main_pane.list.interior.cs.body
+# .main_pane.wave.interior.cs.body.pw.wf
+# ** UI-Msg: (vish-4014) No objects found matching 'wave'.
+# Error in macro ./lfsr.do line 20
+# ** UI-Msg: (vish-4014) No objects found matching 'wave'.
+#     while executing
+# "add wave -hex -r /tblf/*seed wave -noupdate -divider -height 32 "Testbench""
+# End time: 16:33:14 on May 01,2024, Elapsed time: 0:04:15
+# Errors: 0, Warnings: 0

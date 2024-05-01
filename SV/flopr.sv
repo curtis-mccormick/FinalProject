@@ -25,13 +25,15 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 `timescale 1ns / 1ps
-module flopr(input  logic       clk,
-             input  logic       reset, 
-             input  logic [7:0] d, 
-             output logic [7:0] q);
+module flopr #(parameter WIDTH = 8) (
+            input  logic             clk,
+            input  logic             reset,
+            input  logic [WIDTH-1:0] seed_in,
+            input  logic [WIDTH-1:0] game_out, 
+            output logic [WIDTH-1:0] game_in);
 
   // asynchronous reset (similar to HDL Example 4.19)
   always_ff @(posedge clk, posedge reset)
-     if (reset) q <= 8'b0;
-     else       q <= d;
+     if (reset) game_in <= seed_in;
+     else       game_in <= game_out;
 endmodule
