@@ -9,7 +9,7 @@ module GameOfLife(input logic clk, reset, enable, input logic [63:0] seed_in, ou
 
     flopr #(64) dut2(clk, restart, seed_in, game_out, game_in);
 
-    mux2 #(64) du3(seed_in, game_in, go, seed_out);
+    mux2 #(64) dut3(seed_in, game_out, go, seed_out);
 
 endmodule
 
@@ -32,7 +32,6 @@ module fsm(input logic clk, reset, enable, output logic go, restart);
             end else begin
                 nextstate <= S0;
             end
-            
         end
         S1:begin
             go = 1'b1;
@@ -43,6 +42,7 @@ module fsm(input logic clk, reset, enable, output logic go, restart);
                 nextstate <= S1;
             end
         end
+        
     endcase
 
 endmodule

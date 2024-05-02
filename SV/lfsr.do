@@ -17,14 +17,8 @@ view wave
 
 -- display input and output signals as hexidecimal values
 # Diplays All Signals recursively
-add wave -hex -r /tblf/*add wave -noupdate -divider -height 32 "Testbench"
-add wave -hex /tblf/*
-add wave -noupdate -divider -height 32 "FSM"
-add wave -hex /tblf/yachty/*
-add wave -noupdate -divider -height 32 "datapath"
+add wave -hex -r /tblf/*
 add wave -hex /tblf/dut/*
-add wave -noupdate -divider -height 32 "flopr"
-add wave -hex /tblf/dut/hold/*
 
 -- Set Wave Output Items 
 TreeUpdate [SetDefaultTree]
@@ -39,4 +33,4 @@ configure wave -rowmargin 4
 configure wave -childrowmargin 2
 
 -- Run the Simulation
-run 250 ns
+run 132000 ns
