@@ -6,11 +6,12 @@ module tb ();
     logic        clk;
     logic        reset;
     logic        enable;
+    logic        random;
     
     integer 	   handle3;
     integer 	   desc3;
     
-    GameOfLife dut(clk, reset, enable, seed_in, seed_out);
+    GameOfLife dut(clk, reset, enable, random, seed_in, seed_out);
 
  
     initial 
@@ -21,10 +22,13 @@ module tb ();
  
     initial
       begin
+        #0  random = 1'b0;
+        #0  enable = 1'b0;
  	      #0  reset = 1'b1;
  	      #0  seed_in = 64'h0000_00e0_0000_0000;
-        #20 reset = 1'b0;
-        #0  enable = 1'b1;
+        #60 reset = 1'b0;
+        #0  random = 1'b1;
+        #60  enable = 1'b1;
       end
       
     initial

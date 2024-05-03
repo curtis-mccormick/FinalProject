@@ -7,7 +7,7 @@ if [file exists work] {
 vlib work
 
 # compile source files
-vlog GameOfLife.sv GameOfLife_tb.sv flopr.sv mux.sv datapath.sv 
+vlog GameOfLife.sv GameOfLife_tb.sv flopr.sv mux.sv datapath.sv lfsr.sv
 
 # start and run simulation
 vsim -voptargs=+acc work.tb
@@ -23,6 +23,7 @@ add wave -hex /tb/dut/dut/*
 add wave -hex /tb/dut/dut1/*
 add wave -hex /tb/dut/dut2/*
 add wave -hex /tb/dut/dut3/*
+add wave -hex /tb/dut/dut4/*
 
 -- Set Wave Output Items 
 TreeUpdate [SetDefaultTree]
