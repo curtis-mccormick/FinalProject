@@ -53,13 +53,26 @@ module top_demo
   logic [16:0] CURRENT_COUNT;
   logic [16:0] NEXT_COUNT;
   logic        smol_clk;
+  logic        cool_clock;
+  logic reset;
+  logic enbale;
+  logic random;
+  logic [63:0] seed_in;
+  logic [63:0] seed_out;
+  
+  assign reset = btn[0];
+  assign enbale = sw[0];
+  assign random = sw[1];
+  assign seed_in = 64'h0000_00e0_0000_0000;
+  
+  clk_div clock(sysclk_125mhz, btn[3], cool_clock);
    
   // Place Conway Game of Life instantiation here
- 
+  GameOfLife balls(cool_clock, reset, enable, random, seed_in, seed_out);
   // HDMI
   // logic hdmi_out_en;
   //assign hdmi_out_en = 1'b0;
-  hdmi_top test (n2, sysclk_125mhz, hdmi_d_p, hdmi_d_n, hdmi_clk_p, 
+  hdmi_top test (seed_out, sysclk_125mhz, hdmi_d_p, hdmi_d_n, hdmi_clk_p, 
 		         hdmi_clk_n, hdmi_cec, hdmi_sda, hdmi_scl, hdmi_hpd);
   
   // 7-segment display

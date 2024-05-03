@@ -11,10 +11,10 @@ z2
 cModel Technology
 Z0 dC:/Users/nicnova/Documents/LabFinal/FinalProject/SV
 T_opt
-Z1 !s110 1714761546
-VKc]OAnkL3gN0O=[aQl_:N0
+Z1 !s110 1714768213
+VEa24>7kEAlkNo:L6LiO[33
 04 2 4 work tb fast 0
-=1-00be4390592b-66352f4a-2bf-61a4
+=1-00be4390592b-66354955-305-2c7c
 !s124 OEM100
 o-quiet -auto_acc_if_foreign -work work +acc
 Z2 tCvgOpt 0
@@ -38,7 +38,7 @@ Z8 OL;L;2021.3;73
 r1
 !s85 0
 31
-Z9 !s108 1714761546.000000
+Z9 !s108 1714768213.000000
 Z10 !s107 lfsr.sv|datapath.sv|mux.sv|flopr.sv|GameOfLife_tb.sv|GameOfLife.sv|
 Z11 !s90 -reportprogress|300|GameOfLife.sv|GameOfLife_tb.sv|flopr.sv|mux.sv|datapath.sv|lfsr.sv|
 !i113 0
@@ -120,11 +120,11 @@ vflopr
 R3
 R1
 !i10b 1
-!s100 D0UTTzE1]4:`@:`cz3Oo70
-I5WBPOm=`1`dKb]lczCQ^Y2
+!s100 z_]9cnX_eR`BJG`he]ieZ0
+I]ZEDkeVYJ`R>zfB:3QoV81
 S1
 R0
-w1714759697
+w1714763608
 8flopr.sv
 Fflopr.sv
 !i122 0
@@ -148,7 +148,7 @@ R1
 IKm[W<C9a@bNo][5T4Tca83
 S1
 R0
-Z13 w1714761464
+Z13 w1714767104
 Z14 8GameOfLife.sv
 Z15 FGameOfLife.sv
 !i122 0
@@ -409,15 +409,15 @@ vtb
 R3
 R1
 !i10b 1
-!s100 H4IJo]8E83EiL2bUlojX?2
-I5h6>^k1LBE_m:Q;;I6gM[3
+!s100 a@`XXdT@XSChTk>6MKbm>0
+IPia7lQ1FXCQ9UUm2SI5C83
 S1
 R0
-w1714761536
+w1714768202
 8GameOfLife_tb.sv
 FGameOfLife_tb.sv
 !i122 0
-L0 2 46
+L0 2 48
 R7
 R8
 r1

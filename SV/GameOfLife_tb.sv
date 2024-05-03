@@ -22,13 +22,15 @@ module tb ();
  
     initial
       begin
+        #0  seed_in = 64'h0000_00e0_0000_0000;
         #0  random = 1'b0;
         #0  enable = 1'b0;
  	      #0  reset = 1'b1;
- 	      #0  seed_in = 64'h0000_00e0_0000_0000;
-        #60 reset = 1'b0;
+
+        #20 reset = 1'b0;
         #0  random = 1'b1;
-        #60  enable = 1'b1;
+        #60 random = 1'b0;
+
       end
       
     initial

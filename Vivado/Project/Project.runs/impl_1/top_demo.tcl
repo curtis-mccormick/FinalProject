@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "/home/rerra/Desktop/projnov10gitupdate/Project_under_construction/Project.runs/impl_1/top_demo.tcl"
+  variable script "C:/Users/nicnova/Documents/LabFinal/FinalProject/Vivado/Project/Project.runs/impl_1/top_demo.tcl"
   variable category "vivado_impl"
 }
 
@@ -115,6 +115,7 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Write Bitstream" START { ROLLUP_AUTO }
@@ -123,10 +124,13 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  set_param chipscope.maxJobs 12
+  set_param checkpoint.writeSynthRtdsInDcp 1
+  set_param chipscope.maxJobs 4
+  set_param synth.incrementalSynthesisCache C:/Users/nicnova/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-14412-CEAT-ENDV350-05/incrSyn
   set_param xicom.use_bs_reader 1
+  set_param runs.launchOptions { -jobs 8  }
   open_checkpoint top_demo_routed.dcp
-  set_property webtalk.parent_dir /home/rerra/Desktop/projnov10gitupdate/Project_under_construction/Project.cache/wt [current_project]
+  set_property webtalk.parent_dir C:/Users/nicnova/Documents/LabFinal/FinalProject/Vivado/Project/Project.cache/wt [current_project]
 set_property TOP top_demo [current_fileset]
 OPTRACE "read constraints: write_bitstream" START { }
 OPTRACE "read constraints: write_bitstream" END { }
