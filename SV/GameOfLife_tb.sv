@@ -29,7 +29,10 @@ module tb ();
 
         #20 reset = 1'b0;
         #0  random = 1'b1;
-        #60 random = 1'b0;
+        #60 enable = 1'b1;
+
+        #60 enable = 1'b0;
+        #0  random = 1'b0;
 
       end
       

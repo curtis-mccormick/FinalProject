@@ -1,13 +1,13 @@
 module GameOfLife(input logic clk, reset, enable, random, input logic [63:0] seed_in, output logic [63:0] seed_out);
 
     logic go, lfsr_go;
-    logic [63:0] game_in, game_out, new_seed_in, random_seed; 
+    logic [63:0] game_out, new_seed_in, random_seed; 
 
     fsm dut(clk, reset, enable, random, go, lfsr_go);
 
     lfsr64 dut4(seed_in, clk, lfsr_go, random_seed);
 
-    mux2 #(64) dut3(new_seed_in,random_seed, go, seed_out);
+    mux2 #(64) dut3(random_seed, new_seed_in, go, seed_out);
 
     datapath dut1(seed_out, game_out);
 
@@ -50,9 +50,11 @@ module fsm(input logic clk, reset, enable, randomizer, output logic go, lfsr_go)
         end
         S2:begin //play
             go = 1'b0;
-            if(~enable)
-            nextstate <= S0;
-            else nextstate <= S2;
+            if(~enable) begin
+                nextstate <= S0;
+            end else begin
+                nextstate <= S2;
+            end
         end
         
     endcase

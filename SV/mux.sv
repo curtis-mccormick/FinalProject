@@ -31,7 +31,7 @@ module mux2 #(parameter WIDTH = 8) (
   input  logic             go, 
   output logic [WIDTH-1:0] seed_out);
 
-  assign seed_out = go ? new_seed_in : random_seed; 
+  assign seed_out = go ? random_seed : new_seed_in; 
 endmodule
 
 module mux3 #(parameter WIDTH = 8) (
