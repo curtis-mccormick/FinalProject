@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1.1 (win64) Build 3900603 Fri Jun 16 19:31:24 MDT 2023
-| Date         : Fri May  3 15:02:20 2024
-| Host         : CEAT-ENDV350-05 running 64-bit major release  (build 9200)
+| Date         : Fri May  3 20:03:47 2024
+| Host         : CEAT-ENDV350-02 running 64-bit major release  (build 9200)
 | Command      : report_drc -file top_demo_drc_routed.rpt -pb top_demo_drc_routed.pb -rpx top_demo_drc_routed.rpx
 | Design       : top_demo
 | Device       : xc7z020clg484-1
@@ -24,11 +24,11 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 6
+             Violations found: 7
 +-------------+----------+-------------------------------------------------------------+------------+
 | Rule        | Severity | Description                                                 | Violations |
 +-------------+----------+-------------------------------------------------------------+------------+
-| PDRC-153    | Warning  | Gated clock check                                           | 3          |
+| PDRC-153    | Warning  | Gated clock check                                           | 4          |
 | PLHOLDVIO-2 | Warning  | Non-Optimal connections which could lead to hold violations | 2          |
 | ZPS7-1      | Warning  | PS7 block required                                          | 1          |
 +-------------+----------+-------------------------------------------------------------+------------+
@@ -42,10 +42,15 @@ Related violations: <none>
 
 PDRC-153#2 Warning
 Gated clock check  
-Net driver/smol_clk is a gated clock net sourced by a combinational pin driver/FSM_sequential_CURRENT_STATE[1]_i_2/O, cell driver/FSM_sequential_CURRENT_STATE[1]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net balls/dut/go_reg_i_2_n_0 is a gated clock net sourced by a combinational pin balls/dut/go_reg_i_2/O, cell balls/dut/go_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 PDRC-153#3 Warning
+Gated clock check  
+Net driver/smol_clk is a gated clock net sourced by a combinational pin driver/FSM_sequential_CURRENT_STATE[1]_i_2/O, cell driver/FSM_sequential_CURRENT_STATE[1]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#4 Warning
 Gated clock check  
 Net test/hdmi_pll/CLK is a gated clock net sourced by a combinational pin test/hdmi_pll/clk_audio_counter[5]_i_3/O, cell test/hdmi_pll/clk_audio_counter[5]_i_3. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>

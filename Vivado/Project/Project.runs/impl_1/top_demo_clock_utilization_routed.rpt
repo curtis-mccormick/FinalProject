@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.1.1 (win64) Build 3900603 Fri Jun 16 19:31:24 MDT 2023
-| Date         : Fri May  3 15:02:22 2024
-| Host         : CEAT-ENDV350-05 running 64-bit major release  (build 9200)
+| Date         : Fri May  3 20:03:49 2024
+| Host         : CEAT-ENDV350-02 running 64-bit major release  (build 9200)
 | Command      : report_clock_utilization -file top_demo_clock_utilization_routed.rpt
 | Design       : top_demo
 | Device       : 7z020-clg484
@@ -50,9 +50,9 @@ Table of Contents
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+-------+--------------------------------+--------------------------------------+
 | Global Id | Source Id | Driver Type/Pin | Constraint | Site           | Clock Region | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock | Driver Pin                     | Net                                  |
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+-------+--------------------------------+--------------------------------------+
-| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y0  | n/a          |                 1 |         212 |               1 |              |       | test/hdmi_pll/clkout1_buf/O    | test/hdmi_pll/clk_out1               |
-| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y2  | n/a          |                 3 |          65 |               1 |              |       | cool_clock_BUFG_inst/O         | cool_clock_BUFG                      |
-| g2        | src2      | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |                 3 |          45 |               0 |              |       | sysclk_125mhz_IBUF_BUFG_inst/O | sysclk_125mhz_IBUF_BUFG              |
+| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y0  | n/a          |                 1 |         598 |               1 |              |       | test/hdmi_pll/clkout1_buf/O    | test/hdmi_pll/clk_out1               |
+| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y2  | n/a          |                 2 |         131 |               1 |              |       | cool_clock_BUFG_inst/O         | cool_clock_BUFG                      |
+| g2        | src2      | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |                 3 |          46 |               0 |              |       | sysclk_125mhz_IBUF_BUFG_inst/O | sysclk_125mhz_IBUF_BUFG              |
 | g3        | src3      | BUFG/O          | None       | BUFGCTRL_X0Y1  | n/a          |                 1 |           8 |               0 |              |       | test/hdmi_pll/clkout2_buf/O    | test/hdmi_pll/clk_out2               |
 | g4        | src4      | BUFG/O          | None       | BUFGCTRL_X0Y3  | n/a          |                 1 |           1 |               0 |              |       | test/hdmi_pll/clkf_buf/O       | test/hdmi_pll/clkfbout_buf_clk_wiz_0 |
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+-------+--------------------------------+--------------------------------------+
@@ -67,7 +67,7 @@ Table of Contents
 | Source Id | Global Id | Driver Type/Pin     | Constraint | Site            | Clock Region | Clock Loads | Non-Clock Loads | Source Clock Period | Source Clock | Driver Pin                           | Net                              |
 +-----------+-----------+---------------------+------------+-----------------+--------------+-------------+-----------------+---------------------+--------------+--------------------------------------+----------------------------------+
 | src0      | g0        | MMCME2_ADV/CLKOUT0  | None       | MMCME2_ADV_X1Y0 | X1Y0         |           1 |               0 |                     |              | test/hdmi_pll/mmcm_adv_inst/CLKOUT0  | test/hdmi_pll/clk_out1_clk_wiz_0 |
-| src1      | g1        | FDRE/Q              | None       | SLICE_X50Y47    | X1Y0         |           1 |               0 |                     |              | clock/clk_count_reg[24]/Q            | clock/out[0]                     |
+| src1      | g1        | FDRE/Q              | None       | SLICE_X50Y46    | X1Y0         |           1 |               0 |                     |              | clock/clk_count_reg[24]/Q            | clock/CLK                        |
 | src2      | g2        | IBUF/O              | IOB_X1Y76  | IOB_X1Y76       | X1Y1         |           1 |               0 |                     |              | sysclk_125mhz_IBUF_inst/O            | sysclk_125mhz_IBUF               |
 | src3      | g3        | MMCME2_ADV/CLKOUT1  | None       | MMCME2_ADV_X1Y0 | X1Y0         |           1 |               0 |                     |              | test/hdmi_pll/mmcm_adv_inst/CLKOUT1  | test/hdmi_pll/clk_out2_clk_wiz_0 |
 | src4      | g4        | MMCME2_ADV/CLKFBOUT | None       | MMCME2_ADV_X1Y0 | X1Y0         |           1 |               0 |                     |              | test/hdmi_pll/mmcm_adv_inst/CLKFBOUT | test/hdmi_pll/clkfbout_clk_wiz_0 |
@@ -87,9 +87,9 @@ Table of Contents
 | X0Y0              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  2500 |    0 |  1000 |    0 |    60 |    0 |    30 |    0 |    60 |
 | X1Y0              |    3 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    1 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   25 |  3200 |   26 |   850 |    0 |    60 |    0 |    30 |    0 |    40 |
 | X0Y1              |    0 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |  1200 |    0 |   400 |    0 |    20 |    0 |    10 |    0 |    20 |
-| X1Y1              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   19 |  2600 |    2 |   850 |    0 |    60 |    0 |    30 |    0 |    40 |
+| X1Y1              |    1 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |   17 |  2600 |    0 |   850 |    0 |    60 |    0 |    30 |    0 |    40 |
 | X0Y2              |    0 |    12 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |     0 |    0 |  1200 |    0 |   400 |    0 |    20 |    0 |    10 |    0 |    20 |
-| X1Y2              |    4 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    8 |    50 |  269 |  2600 |   79 |   850 |    0 |    60 |    0 |    30 |    0 |    40 |
+| X1Y2              |    4 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    8 |    50 |  724 |  2600 |  337 |   850 |    0 |    60 |    0 |    30 |    0 |    40 |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 * Global Clock column represents track count; while other columns represents cell counts
 
@@ -113,7 +113,7 @@ All Modules
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                    |
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+------------------------+
-| g0        | BUFG/O          | n/a               |       |             |               |         205 |        8 |              0 |        0 | test/hdmi_pll/clk_out1 |
+| g0        | BUFG/O          | n/a               |       |             |               |         591 |        8 |              0 |        0 | test/hdmi_pll/clk_out1 |
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -124,7 +124,7 @@ All Modules
 +----+----+------+-----------------------+
 |    | X0 | X1   | HORIZONTAL PROG DELAY |
 +----+----+------+-----------------------+
-| Y2 |  0 |  213 |                     0 |
+| Y2 |  0 |  599 |                     0 |
 | Y1 |  0 |    0 |                     - |
 | Y0 |  0 |    0 |                     - |
 +----+----+------+-----------------------+
@@ -136,7 +136,7 @@ All Modules
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+-----------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net             |
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+-----------------+
-| g1        | BUFG/O          | n/a               |       |             |               |          66 |        0 |              0 |        0 | cool_clock_BUFG |
+| g1        | BUFG/O          | n/a               |       |             |               |         132 |        0 |              0 |        0 | cool_clock_BUFG |
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+-----------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -144,13 +144,13 @@ All Modules
 **** GT Loads column represents load cell count of GT types
 
 
-+----+----+-----+-----------------------+
-|    | X0 | X1  | HORIZONTAL PROG DELAY |
-+----+----+-----+-----------------------+
-| Y2 |  0 |  63 |                     0 |
-| Y1 |  0 |   2 |                     0 |
-| Y0 |  0 |   1 |                     0 |
-+----+----+-----+-----------------------+
++----+----+------+-----------------------+
+|    | X0 | X1   | HORIZONTAL PROG DELAY |
++----+----+------+-----------------------+
+| Y2 |  0 |  131 |                     0 |
+| Y1 |  0 |    0 |                     - |
+| Y0 |  0 |    1 |                     0 |
++----+----+------+-----------------------+
 
 
 8. Device Cell Placement Summary for Global Clock g2
@@ -159,7 +159,7 @@ All Modules
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+-------------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                     |
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+-------------------------+
-| g2        | BUFG/O          | n/a               |       |             |               |          44 |        0 |              1 |        0 | sysclk_125mhz_IBUF_BUFG |
+| g2        | BUFG/O          | n/a               |       |             |               |          45 |        0 |              1 |        0 | sysclk_125mhz_IBUF_BUFG |
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+-------------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -170,7 +170,7 @@ All Modules
 +----+----+-----+-----------------------+
 |    | X0 | X1  | HORIZONTAL PROG DELAY |
 +----+----+-----+-----------------------+
-| Y2 |  0 |   2 |                     0 |
+| Y2 |  0 |   3 |                     0 |
 | Y1 |  0 |  17 |                     0 |
 | Y0 |  0 |  26 |                     0 |
 +----+----+-----+-----------------------+
@@ -243,7 +243,6 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+-------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                     |
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+-------------------------+
-| g1        | n/a   | BUFG/O          | None       |           2 |               0 |  2 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | cool_clock_BUFG         |
 | g2        | n/a   | BUFG/O          | None       |          17 |               0 | 17 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | sysclk_125mhz_IBUF_BUFG |
 +-----------+-------+-----------------+------------+-------------+-----------------+----+-------------+------+-----+----+------+-----+---------+-------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
@@ -257,9 +256,9 @@ All Modules
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+-------------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | Memory LUTs | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                     |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+-------------------------+
-| g0        | n/a   | BUFG/O          | None       |         212 |               1 | 204 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | test/hdmi_pll/clk_out1  |
-| g1        | n/a   | BUFG/O          | None       |          63 |               0 |  63 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | cool_clock_BUFG         |
-| g2        | n/a   | BUFG/O          | None       |           2 |               0 |   2 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | sysclk_125mhz_IBUF_BUFG |
+| g0        | n/a   | BUFG/O          | None       |         598 |               1 | 590 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | test/hdmi_pll/clk_out1  |
+| g1        | n/a   | BUFG/O          | None       |         131 |               0 | 131 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | cool_clock_BUFG         |
+| g2        | n/a   | BUFG/O          | None       |           3 |               0 |   3 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | sysclk_125mhz_IBUF_BUFG |
 | g3        | n/a   | BUFG/O          | None       |           8 |               0 |   0 |           0 |    0 |   0 |  0 |    0 |   0 |       0 | test/hdmi_pll/clk_out2  |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+-------------+------+-----+----+------+-----+---------+-------------------------+
 * Clock Loads column represents cell count of net connects that connect to a clock pin. Internal cell leaf pins are not considered
@@ -305,5 +304,5 @@ resize_pblock [get_pblocks {CLKAG_sysclk_125mhz_IBUF_BUFG}] -add {CLOCKREGION_X1
 #startgroup
 create_pblock {CLKAG_cool_clock_BUFG}
 add_cells_to_pblock [get_pblocks  {CLKAG_cool_clock_BUFG}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -leaf -filter {DIRECTION==IN} -of_objects [get_nets {cool_clock_BUFG}]]]
-resize_pblock [get_pblocks {CLKAG_cool_clock_BUFG}] -add {CLOCKREGION_X1Y0:CLOCKREGION_X1Y0 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
+resize_pblock [get_pblocks {CLKAG_cool_clock_BUFG}] -add {CLOCKREGION_X1Y0:CLOCKREGION_X1Y0 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2}
 #endgroup

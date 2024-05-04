@@ -55,13 +55,13 @@ module top_demo
   logic        smol_clk;
   logic        cool_clock;
   logic reset;
-  logic enbale;
+  logic enable;
   logic random;
   logic [63:0] seed_in;
   logic [63:0] seed_out;
   
   assign reset = btn[0];
-  assign enbale = sw[0];
+  assign enable = sw[0];
   assign random = sw[1];
   assign seed_in = 64'h0000_00e0_0000_0000;
   

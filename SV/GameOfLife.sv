@@ -5,7 +5,7 @@ module GameOfLife(input logic clk, reset, enable, random, input logic [63:0] see
 
     fsm dut(clk, reset, enable, random, go, lfsr_go);
 
-    lfsr64 dut4(seed_in, clk, lfsr_go, random_seed);
+    lfsr64 dut4(seed_in, clk, lfsr_go, random_seed); 
 
     mux2 #(64) dut3(random_seed, new_seed_in, go, seed_out);
 
@@ -40,7 +40,7 @@ module fsm(input logic clk, reset, enable, randomizer, output logic go, lfsr_go)
         S1:begin //random
             go = 1'b1;
             lfsr_go = 1'b1;
-            if(reset) begin
+            if(reset || ~randomizer) begin
                 nextstate <= S0;
             end else if(enable) begin
                 nextstate <= S2;
