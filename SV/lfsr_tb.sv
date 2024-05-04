@@ -1,15 +1,15 @@
 // testbench to prove maximal LFSR
 module tblf();
 
-    logic [63:0]  seed_in;
-    logic [63:0]  seed_out;
+    logic [15:0]  seed_in;
+    logic [15:0]  seed_out;
     logic         clk;
     logic         lfsr_go;
     
     integer 	    handle3;
     integer 	    desc3;
 
-    lfsr64 dut(seed_in, clk, lfsr_go, seed_out);
+    lfsr dut(seed_in, clk, lfsr_go, seed_out);
 
     always     
       begin
@@ -25,9 +25,8 @@ module tblf();
     initial
       begin
 	    #0   lfsr_go = 1'b0;	
-	    #0   seed_in = 64'h0000_00e0_0000_0000;
+	    #0   seed_in = 64'h0000_00e0;
 	    #20  lfsr_go = 1'b1;
-      #60  lfsr_go = 1'b0;
       end
 	     
     always @(posedge clk)

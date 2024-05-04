@@ -1,0 +1,40 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2023.1.1 (win64) Build 3900603 Fri Jun 16 19:31:24 MDT 2023
+| Date         : Fri May  3 20:27:23 2024
+| Host         : CEAT-ENDV350-02 running 64-bit major release  (build 9200)
+| Command      : report_timing -file route_report_timing_0.rpt -rpx route_report_timing_0.rpx
+| Design       : top_demo
+| Device       : 7z020-clg484
+| Speed File   : -1  PRODUCTION 1.12 2019-11-22
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack:                    inf
+  Source:                 sw[0]
+                            (input port)
+  Destination:            sseg_cb
+                            (output port)
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        16.238ns  (logic 5.062ns (31.174%)  route 11.176ns (68.826%))
+  Logic Levels:           3  (IBUF=1 LUT6=1 OBUF=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    T6                                                0.000     0.000 r  sw[0] (IN)
+                         net (fo=0)                   0.000     0.000    sw[0]
+    T6                   IBUF (Prop_ibuf_I_O)         1.429     1.429 r  sw_IBUF[0]_inst/O
+                         net (fo=82, routed)          6.700     8.128    driver/sw_IBUF[0]
+    SLICE_X111Y73        LUT6 (Prop_lut6_I3_O)        0.124     8.252 r  driver/sseg_cb_OBUF_inst_i_1/O
+                         net (fo=1, routed)           4.476    12.729    sseg_cb_OBUF
+    H17                  OBUF (Prop_obuf_I_O)         3.509    16.238 r  sseg_cb_OBUF_inst/O
+                         net (fo=0)                   0.000    16.238    sseg_cb
+    H17                                                               r  sseg_cb (OUT)
+  -------------------------------------------------------------------    -------------------
+
+
+
+
