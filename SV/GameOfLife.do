@@ -20,9 +20,6 @@ view wave
 add wave -hex -r /tb/*
 add wave -hex /tb/dut/*
 add wave -hex /tb/dut/dut/*
-add wave -hex /tb/dut/dut1/*
-add wave -hex /tb/dut/dut2/*
-add wave -hex /tb/dut/dut3/*
 add wave -hex /tb/dut/dut4/*
 
 -- Set Wave Output Items 

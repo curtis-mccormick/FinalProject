@@ -13,7 +13,9 @@ module tblf();
 
     always     
       begin
-	      clk = 1; #1; clk = 0; #1;
+	      clk = 1; 
+        #1; clk = 0; 
+        #1;
       end
      
     initial
@@ -25,8 +27,9 @@ module tblf();
     initial
       begin
 	    #0   lfsr_go = 1'b0;	
-	    #0   seed_in = 64'h0000_00e0;
+	    #0   seed_in = 16'h0000_00e0;
 	    #20  lfsr_go = 1'b1;
+      #80  lfsr_go = 1'b0;
       end
 	     
     always @(posedge clk)

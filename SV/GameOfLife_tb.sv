@@ -13,7 +13,6 @@ module tb ();
     
     GameOfLife dut(clk, reset, enable, random, seed_in, seed_out);
 
- 
     initial 
       begin	
  	    clk = 1'b1;
@@ -22,7 +21,7 @@ module tb ();
  
     initial
       begin
-        #0  seed_in = 64'h0c00_00e0_0a00_0600;
+        #0  seed_in = 64'h0000_0700_0000_0000;
         #0  random = 1'b0;
         #0  enable = 1'b0;
  	      #0  reset = 1'b1;
@@ -30,7 +29,13 @@ module tb ();
         #20 reset = 1'b0;
         #0 enable = 1'b1;
 
-        #100 enable = 1'b0;
+        #80 enable = 1'b0;
+        #0 random = 1'b1;
+
+        #80 random = 1'b0;
+
+        #80 random = 1'b1;
+        #80 enable = 1'b1;
 
       end
       
